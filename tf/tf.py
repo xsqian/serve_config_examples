@@ -44,5 +44,5 @@ class TFMnistModel:
         # Step 3: tensorflow output -> web output
         return {"prediction": prediction.numpy().tolist(), "file": self.model_path}
     
-mnist_model = TFMnistModel.bind()
+mnist_model = TFMnistModel.bind(TRAINED_MODEL_PATH)
 
