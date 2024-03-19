@@ -29,7 +29,7 @@ class TFMnistModel:
     def __init__(self, model_path: str):
         import tensorflow as tf
 
-        self.model_path = model_path
+        self.model_path = "model.h5"
         self.model = tf.keras.models.load_model(model_path)
 
     async def __call__(self, starlette_request: Request) -> Dict:
@@ -44,5 +44,5 @@ class TFMnistModel:
         # Step 3: tensorflow output -> web output
         return {"prediction": prediction.numpy().tolist(), "file": self.model_path}
     
-mnist_model = TFMnistModel.bind(TRAINED_MODEL_PATH)
+mnist_model = TFMnistModel.bind()
 
