@@ -1,24 +1,25 @@
-apiVersion: ray.io/v1alpha1
+apiVersion: ray.io/v1
 kind: RayService
 metadata:
-  name: rayservice-tf
+  name: rayservice-mymobilenet
 spec:
   serviceUnhealthySecondThreshold: 900 # Config for the health check threshold for Ray Serve applications. Default value is 900.
   deploymentUnhealthySecondThreshold: 300 # Config for the health check threshold for Ray dashboard agent. Default value is 300.
   serveConfigV2: |
     applications:
-      - name: tf
-        import_path: tf.tf.mnist_model
+      - name: hello
+        import_path: hello.read_file.app
+        route_prefix: /
         runtime_env:
-          working_dir: "https://mlrun-ce-cfn.s3.us-east-2.amazonaws.com/serve_config_examples-master.zip"
-          pip:
-            - torch
-            - tensorflow
+          working_dir: "https://github.com/xsqian/test_dag/archive/refs/tags/master.zip"
+          pip: ["python-multipart==0.0.6"]
+        
         deployments:
-          - name: TFMnistModel
+          - name: Model
             num_replicas: 1
             ray_actor_options:
               num_cpus: 1
+
   rayClusterConfig:
     rayVersion: '2.7.0' # should match the Ray version in the image of the containers
     ######################headGroupSpecs#################################
@@ -34,14 +35,14 @@ spec:
         spec:
           containers:
             - name: ray-head
-              image: rayproject/ray:2.7.0
+              image: rayproject/ray-ml:2.7.0
               resources:
                 limits:
-                  cpu: 2
-                  memory: 2Gi
+                  cpu: 1
+                  memory: 4Gi
                 requests:
-                  cpu: 2
-                  memory: 2Gi
+                  cpu: 1
+                  memory: 4Gi
               ports:
                 - containerPort: 6379
                   name: gcs-server
@@ -67,7 +68,7 @@ spec:
           spec:
             containers:
               - name: ray-worker # must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character (e.g. 'my-name',  or '123-abc'
-                image: rayproject/ray:2.7.0
+                image: rayproject/ray-ml:2.7.0
                 lifecycle:
                   preStop:
                     exec:
@@ -75,7 +76,7 @@ spec:
                 resources:
                   limits:
                     cpu: 1
-                    memory: 2Gi
+                    memory: 4Gi
                   requests:
                     cpu: 1
-                    memory: 2Gi
+                    memory: 4Gi

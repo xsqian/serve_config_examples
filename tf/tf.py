@@ -11,16 +11,16 @@ from typing import Dict
 
 import tensorflow as tf
 
-# TRAINED_MODEL_PATH = os.path.join(tempfile.gettempdir(), "mnist_model.h5")
+# # TRAINED_MODEL_PATH = os.path.join(tempfile.gettempdir(), "mnist_model.h5")
 
-TRAINED_MODEL_PATH = os.path.join(os.getcwd(), "model", "mnist_model.h5")
+# TRAINED_MODEL_PATH = os.path.join(os.getcwd(), "model", "mnist_model.h5")
 
-TRAINED_MODEL_PATH = "https://mlrun-ce-cfn.s3.us-east-2.amazonaws.com/mnist_model.h5" #use a remote model registry, actuall will receive error below:
-# (ServeController pid=35245) tensorflow.python.framework.errors_impl.UnimplementedError: File system scheme 'https' not implemented (file: 'https://mlrun-ce-cfn.s3.us-east-2.amazonaws.com/mnist_model.h5')
+# TRAINED_MODEL_PATH = "https://mlrun-ce-cfn.s3.us-east-2.amazonaws.com/mnist_model.h5" #use a remote model registry, actuall will receive error below:
+# # (ServeController pid=35245) tensorflow.python.framework.errors_impl.UnimplementedError: File system scheme 'https' not implemented (file: 'https://mlrun-ce-cfn.s3.us-east-2.amazonaws.com/mnist_model.h5')
 
-from urllib.request import urlretrieve
+# from urllib.request import urlretrieve
 
-urlretrieve('https://mlrun-ce-cfn.s3.us-east-2.amazonaws.com/mnist_model.h5', 'model.h5')
+# urlretrieve('https://mlrun-ce-cfn.s3.us-east-2.amazonaws.com/mnist_model.h5', 'model.h5')
 TRAINED_MODEL_PATH = "model.h5"
 print(TRAINED_MODEL_PATH)
 
