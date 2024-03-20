@@ -10,7 +10,7 @@ spec:
       - name: tf
         import_path: tf.tf.mnist_model
         runtime_env:
-          working_dir: "https://mlrun-ce-cfn.s3.us-east-2.amazonaws.com/serve_config_examples-master.zip"
+          working_dir: "https://github.com/xsqian/serve_config_examples/archive/refs/tags/master.zip"
           pip:
             - torch
             - tensorflow
