@@ -1,7 +1,7 @@
 apiVersion: ray.io/v1
 kind: RayService
 metadata:
-  name: rayservice-mymobilenet
+  name: rayservice-hello
 spec:
   serviceUnhealthySecondThreshold: 900 # Config for the health check threshold for Ray Serve applications. Default value is 900.
   deploymentUnhealthySecondThreshold: 300 # Config for the health check threshold for Ray dashboard agent. Default value is 300.
@@ -11,7 +11,7 @@ spec:
         import_path: hello.read_file.app
         route_prefix: /
         runtime_env:
-          working_dir: "https://github.com/xsqian/test_dag/archive/refs/tags/master.zip"
+          working_dir: "https://github.com/xsqian/serve_config_examples/archive/refs/tags/master.zip"
           pip: ["python-multipart==0.0.6"]
         
         deployments:
