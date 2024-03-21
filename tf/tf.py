@@ -8,7 +8,6 @@ import tempfile
 import numpy as np
 from starlette.requests import Request
 from typing import Dict
-
 import tensorflow as tf
 
 # # TRAINED_MODEL_PATH = os.path.join(tempfile.gettempdir(), "mnist_model.h5")
@@ -27,8 +26,6 @@ print(TRAINED_MODEL_PATH)
 @serve.deployment
 class TFMnistModel:
     def __init__(self, model_path: str):
-        import tensorflow as tf
-
         self.model_path = "model.h5"
         self.model = tf.keras.models.load_model(model_path)
 

@@ -1,4 +1,6 @@
 from ray import serve
+from starlette.requests import Request
+import tensorflow as tf
 
 MODEL_PATH = "file.txt"
 @serve.deployment
