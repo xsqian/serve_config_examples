@@ -8,7 +8,8 @@ print(MODEL_PATH)
 class Model:
     def __init__(self, model_path: str):
         self.model_path = model_path
-        self.model = tf.keras.models.load_model(model_path)
+        print(f"model_path = {model_path}")
+        # self.model = tf.keras.models.load_model(model_path)
 
     def __call__(self):
 
