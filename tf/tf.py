@@ -26,7 +26,7 @@ print(TRAINED_MODEL_PATH)
 @serve.deployment
 class TFMnistModel:
     def __init__(self, model_path: str):
-        self.model_path = "model.h5"
+        self.model_path = model_path 
         self.model = tf.keras.models.load_model(model_path)
 
     async def __call__(self, starlette_request: Request) -> Dict:
