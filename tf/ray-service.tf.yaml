@@ -12,16 +12,16 @@ spec:
         import_path: tf.tf.mnist_model
         runtime_env:
           working_dir: "https://github.com/xsqian/serve_config_examples/archive/refs/tags/master.zip"
-          pip: ["tensorflow==2.16.1", "numpy==1.19.5", "starlette"]
+
 
         deployments:
           - name: TFMnistModel
             num_replicas: 1
             ray_actor_options:
-              num_cpus: 1
+              num_cpus: 2
 
   rayClusterConfig:
-    rayVersion: '2.7.0' # should match the Ray version in the image of the containers
+    rayVersion: '2.9.3' # should match the Ray version in the image of the containers
     ######################headGroupSpecs#################################
     # Ray head pod template.
     headGroupSpec:
@@ -35,7 +35,7 @@ spec:
         spec:
           containers:
             - name: ray-head
-              image: rayproject/ray-ml:2.7.0
+              image: rayproject/ray-ml:2.9.3.b8d0cb-py39
               resources:
                 limits:
                   cpu: 2
@@ -68,7 +68,7 @@ spec:
           spec:
             containers:
               - name: ray-worker # must consist of lower case alphanumeric characters or '-', and must start and end with an alphanumeric character (e.g. 'my-name',  or '123-abc'
-                image: rayproject/ray-ml:2.7.0
+                image: rayproject/ray-ml:2.9.3.b8d0cb-py39
                 lifecycle:
                   preStop:
                     exec:

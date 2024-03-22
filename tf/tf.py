@@ -20,7 +20,7 @@ import tensorflow as tf
 # from urllib.request import urlretrieve
 
 # urlretrieve('https://mlrun-ce-cfn.s3.us-east-2.amazonaws.com/mnist_model.h5', 'model.h5')
-TRAINED_MODEL_PATH = "model.h5"
+TRAINED_MODEL_PATH = "mnist_model.h5"
 print(TRAINED_MODEL_PATH)
 
 @serve.deployment
