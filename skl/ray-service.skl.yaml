@@ -12,7 +12,7 @@ spec:
         import_path: skl.boosting.boosting_model
         runtime_env:
           working_dir: "https://github.com/xsqian/serve_config_examples/archive/refs/tags/master.zip"
-
+          pip: ["scikit-learn==1.4.1.post1"]
 
         deployments:
           - name: BoostingModel
