@@ -12,7 +12,7 @@ from sklearn.datasets import load_iris
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.metrics import mean_squared_error
 
-MODEL_PATH = "iris_model_gradient_boosting_classifier.pkl"
+MODEL_PATH = "sk_model.pkl"
 LABEL_PATH = "iris_labels.json"
 
 @serve.deployment
