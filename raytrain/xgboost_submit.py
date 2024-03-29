@@ -5,8 +5,10 @@ client = JobSubmissionClient("http://127.0.0.1:8265")
 kick_off_xgboost_benchmark = (
     # Clone ray. If ray is already present, don't clone again.
     # "git clone https://github.com/ray-project/ray || true;"
+    "git clone https://github.com/xsqian/serve_config_examples.git || true;"
+
     # Run the benchmark.
-    " python ray/release/air_tests/air_benchmarks/workloads/torch_benchmark.py"
+    " python serve_config_examples/raytrain/train_func.py"
 )
 
 

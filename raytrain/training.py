@@ -54,7 +54,7 @@ def train_func():
 
 import ray.train.torch
 
-# @ray.remote
+@ray.remote
 def train_func_distributed():
     num_epochs = 3
     batch_size = 64
