@@ -82,7 +82,7 @@ spec:
   workerGroupSpecs:
   - replicas: 2
     minReplicas: 1
-    maxReplicas: 2
+    maxReplicas: 4
     # To experiment with autoscaling,
     # set replicas and minReplicas to 0.
     # replicas: 0

@@ -59,5 +59,5 @@ ray job logs 'raysubmit_PunLcB8KZbePxABJ' --follow --address http://127.0.0.1:82
 ```
 
 ```
-watch -n 1 kubectl exec -it raycluster-xgboost-mini-head-dthg2 -- ray status
+watch -n 1 kubectl exec -it raycluster-xgboost-mini-head-wcps2 -- ray status
 ```
