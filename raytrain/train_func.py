@@ -8,7 +8,6 @@ from torch.utils.data import DataLoader
 from torchvision.models import resnet18
 from torchvision.datasets import FashionMNIST
 from torchvision.transforms import ToTensor, Normalize, Compose
-import ray.train.ScalingConfig
 import ray.train.torch
 
 def train_func():
