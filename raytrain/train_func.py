@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 from torchvision.models import resnet18
 from torchvision.datasets import FashionMNIST
 from torchvision.transforms import ToTensor, Normalize, Compose
-
+import ray.train.ScalingConfig
 import ray.train.torch
 
 def train_func():
@@ -32,7 +32,7 @@ def train_func():
     train_loader = ray.train.torch.prepare_data_loader(train_loader)
 
     # Training
-    for epoch in range(10):
+    for epoch in range(2):
         if ray.train.get_context().get_world_size() > 1:
             train_loader.sampler.set_epoch(epoch)
 

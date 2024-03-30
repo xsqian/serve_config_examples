@@ -53,3 +53,11 @@ curl https://raw.githubusercontent.com/ray-project/ray/releases/2.0.0/doc/source
 # Run the script.
 python xgboost_submit.py
 ```
+
+```
+ray job logs 'raysubmit_PunLcB8KZbePxABJ' --follow --address http://127.0.0.1:8265     
+```
+
+```
+watch -n 1 kubectl exec -it raycluster-xgboost-mini-head-dthg2 -- ray status
+```
