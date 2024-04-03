@@ -54,7 +54,7 @@ def train_func():
 
 import ray.train.torch
 
-@ray.remote
+# @ray.remote
 def train_func_distributed():
     num_epochs = 3
     batch_size = 64
@@ -89,7 +89,7 @@ use_gpu = False
 
 trainer = TorchTrainer(
     train_func_distributed,
-    scaling_config=ScalingConfig(num_workers=4, use_gpu=use_gpu)
+    scaling_config=ScalingConfig(num_workers=2, use_gpu=use_gpu)
 )
 
 results = trainer.fit()

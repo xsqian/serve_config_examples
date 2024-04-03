@@ -67,7 +67,7 @@ spec:
           resources:
             limits:
               cpu: "4"
-              memory: "4Gi"
+              memory: "6Gi"
               # The node that hosts this pod should have at least 1000Gi disk space,
               # for data set storage.
               ephemeral-storage: "7Gi"
@@ -104,7 +104,7 @@ spec:
             limits:
               # Slightly less than 16 to accomodate placement on 16 vCPU virtual machine.
               cpu: "4"
-              memory: "4Gi"
+              memory: "6Gi"
               # The node that hosts this pod should have at least 1000Gi disk space,
               # for data set storage.
               ephemeral-storage: "7Gi"
