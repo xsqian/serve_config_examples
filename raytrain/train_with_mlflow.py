@@ -1,9 +1,7 @@
 import os
 import mlflow
 
-os.environ['MLFLOW_TRACKING_URI'] = "https://dagshub.com/xsqian/dagshub-demo.mlflow"
-os.environ['MLFLOW_TRACKING_USERNAME'] = "xsqian"
-os.environ['MLFLOW_TRACKING_PASSWORD'] = "rfg8@5LZ88igXX@"
+
 
 mlflow.set_tracking_uri(os.environ['MLFLOW_TRACKING_URI'])
 
