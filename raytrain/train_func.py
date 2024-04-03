@@ -68,7 +68,10 @@ trainer = ray.train.torch.TorchTrainer(
     # [5a] If running in a multi-node cluster, this is where you
     # should configure the run's persistent storage that is accessible
     # across all worker nodes.
-    # run_config=ray.train.RunConfig(storage_path="s3://..."),
+    run_config=ray.train.RunConfig(
+        storage_path="s3://mlrun-ce-cfn/mlflow", 
+        failure_config=ray.train.FailureConfig(3)
+        ),
 )
 result = trainer.fit()
 
